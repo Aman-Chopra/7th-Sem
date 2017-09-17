@@ -1,0 +1,405 @@
+<link rel='stylesheet' href='/stylesheets/dashboard.css' />
+
+<div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/dashboard">Cardigram</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{Name}} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/userprofile"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/user/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav side-nav">
+                  <li>
+                      <a href="/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                  </li>
+                  <li class="active">
+                      <a href="/getcharts"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                  </li>
+                  <li>
+                      <a href="/table"><i class="fa fa-fw fa-table"></i> Tables</a>
+                  </li>
+                  <li>
+                      <a href="/report"><i class="fa fa-fw fa-database"></i> Reports</a>
+                  </li>
+                  <li>
+                      <a href="/gensini"><i class="fa fa-fw fa-gratipay"></i> Gensini</a>
+                  </li>
+                  <li>
+                      <a href="/uploaddata"><i class="fa fa-fw fa-upload"></i> Upload data</a>
+                  </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Charts
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i>  <a href="/dashboard"><b>Dashboard</b></a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-bar-chart-o"></i> Charts
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- Flot Charts -->
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i>Bar Charts</h3>
+                            </div>
+                            <div class="panel-body">
+                                <!--<div id="morris-area-chart"></div>-->
+                                <div class="ct-chart ct-label"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{# if Length}}
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Graphical Analysis</h2>
+                    </div>
+                </div>
+
+
+                <div class="btn-group" role="group" aria-label="...">
+  <button type="button" id = "button1" class=" current btn btn-default"> <a href="#haematology">Haematology</a></button>
+  <button type="button" id = "button2" class="btn btn-default"> <a href="#lipid">Lipid Profile</a></button>
+  <button type="button" id = "button3" class="btn btn-default"> <a href="#kidney">Kidney(KFT)</a></button>
+  <button type="button" id = "button4" class="btn btn-default"> <a href="#liver">Liver(LFT)</a></button>
+</div>
+<br>
+<br>
+<br>
+
+
+<section id="haematology">
+  <h2>Haematology.</h2>
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne1">
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="lead"><i class="fa fa-area-chart"></i>  Leucocyte.</p>
+        </div>
+
+    </div>
+  </a>
+</h4>
+</div>
+<div id="collapseOne1" class="panel-collapse collapse in">
+<div class="panel-body">
+
+  <div class="ct-chart1"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne2">
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="lead"><i class="fa fa-bar-chart"></i> Haemoglobin.</p>
+        </div>
+
+    </div>
+  </a>
+</h4>
+</div>
+<div id="collapseOne2" class="panel-collapse collapse in">
+<div class="panel-body">
+
+  <div class="ct-chart2"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<br>
+
+<section id="lipid">
+  <h2>Lipid Profile.</h2>
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne3">
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="lead"><i class="fa fa-line-chart"></i>  Triglycerides.</p>
+        </div>
+
+    </div>
+  </a>
+</h4>
+</div>
+<div id="collapseOne3" class="panel-collapse collapse in">
+<div class="panel-body">
+
+  <div class="ct-chart3"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne4">
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="lead"><i class="fa fa-area-chart"></i>  Cholestrol.</p>
+        </div>
+
+    </div>
+  </a>
+</h4>
+</div>
+<div id="collapseOne4" class="panel-collapse collapse in">
+<div class="panel-body">
+
+  <div class="ct-chart4"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+<br>
+
+
+<!--<div class="ct-chart3"></div>-->
+<section id="kidney">
+  <h2>Kidney Profile.</h2>
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne5">
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="lead"><i class="fa fa-bar-chart"></i>  Urea.</p>
+        </div>
+
+    </div>
+  </a>
+</h4>
+</div>
+<div id="collapseOne5" class="panel-collapse collapse in">
+<div class="panel-body">
+
+  <div class="ct-chart5"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne6">
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="lead"><i class="fa fa-bar-chart"></i>  Sodium.</p>
+        </div>
+
+    </div>
+  </a>
+</h4>
+</div>
+<div id="collapseOne6" class="panel-collapse collapse in">
+<div class="panel-body">
+
+  <div class="ct-chart6"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<br>
+
+<section id="liver">
+  <h2>Liver Profile.</h2>
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne7">
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="lead"><i class="fa fa-line-chart"></i>  Potein.</p>
+        </div>
+
+    </div>
+  </a>
+</h4>
+</div>
+<div id="collapseOne7" class="panel-collapse collapse in">
+<div class="panel-body">
+
+  <div class="ct-chart7"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne8">
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="lead"><i class="fa fa-area-chart"></i>  Alkaline.</p>
+        </div>
+
+    </div>
+  </a>
+</h4>
+</div>
+<div id="collapseOne8" class="panel-collapse collapse in">
+<div class="panel-body">
+
+  <div class="ct-chart8"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+{{ else }}
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">No Charts to show.<br></h2>
+        </div>
+    </div>
+{{/if}}
+
+
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper wrapper -->
+    <script type="text/javascript" src="javascripts/charts.js"></script>
+
+<script>
+
+window.onload = function() {
+xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", "/charts", true);
+xmlhttp.responseType = 'json';
+xmlhttp.onreadystatechange = function() {
+if(xmlhttp.status == 200) {
+var data = xmlhttp.response;
+drawChart(data.data[0]);
+drawChart1(data.data1[0]);
+drawChart2(data.data2[0]);
+drawChart3(data.data3[0]);
+drawChart4(data.data4[0]);
+drawChart5(data.data5[0]);
+drawChart6(data.data6[0]);
+drawChart7(data.data7[0]);
+}
+}
+xmlhttp.send();
+console.log("Request was sent to server");
+}
+</script>
+
+
+<script>
+$("#button1").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#haematology").offset().top
+    }, 2000);
+});
+$("#button2").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#lipid").offset().top
+    }, 2000);
+});
+$("#button3").click(function() {
+  var nav = $('#kidney');
+    if (nav.length) {
+    $('html, body').animate({
+        scrollTop: $("#kidney").offset().top
+    }, 2000);
+  }
+});
+$("#button4").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#liver").offset().top
+    }, 2000);
+});
+</script>
+
+
+    <script type="text/javascript" src="javascripts/barchart.js"></script>

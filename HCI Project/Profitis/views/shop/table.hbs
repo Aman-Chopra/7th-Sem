@@ -1,0 +1,629 @@
+<link rel='stylesheet' href='/stylesheets/dashboard.css' />
+<script src= "https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<div id="wrapper">
+
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/dashboard">Cardigram</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{Name}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/userprofile"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/user/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav side-nav">
+                  <li>
+                      <a href="/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                  </li>
+                  <li>
+                      <a href="/getcharts"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                  </li>
+                  <li  class="active">
+                      <a href="/table"><i class="fa fa-fw fa-table"></i> Tables</a>
+                  </li>
+                  <li>
+                      <a href="/report"><i class="fa fa-fw fa-database"></i> Reports</a>
+                  </li>
+                  <li>
+                      <a href="/gensini"><i class="fa fa-fw fa-gratipay"></i> Gensini</a>
+                  </li>
+                  <li>
+                      <a href="/uploaddata"><i class="fa fa-fw fa-upload"></i> Upload data</a>
+                  </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Tables
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html"><b>Dashboard</b></a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-table"></i> Tables
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <br>
+
+
+
+                {{# if Length}}
+<div class="row">
+        <div class="col-lg-12">
+              <h2>Haematology.</h2>
+<div class="table-responsive">
+<table id="demo" class="table table-condensed table-hover table-bordered sortable">
+    <thead>
+        <tr>
+            <th>Haemoglobin(gm/dL)</th>
+            <th>Leucocyte(c.mm)</th>
+            <th>Neutrophils(%)</th>
+            <th>Lymphocytes(%)</th>
+            <th>Eosinophils(%)</th>
+            <th>Monocytes(%)</th>
+        </tr>
+    </thead>
+    <tbody>
+      {{# each haematology}}
+      {{# each this}}
+        <tr>
+
+            <td>{{this.Haemoglobin}}</td>
+            <td>{{this.Leucocyte}}</td>
+            <td>{{this.Neutrophils}}</td>
+            <td>{{this.Lymphocytes}}</td>
+            <td>{{this.Eosinophils}}</td>
+            <td>{{this.Monocytes}}</td>
+        </tr>
+          {{/each}}
+      {{/each}}
+    </tbody>
+
+</table>
+<form id="myForm">
+<label class="radio-inline"><input type="radio" name="optradio" value="1">Haemoglobin</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="2">Leucocyte</label>
+<label class="radio-inline"><input type="radio" name="optradio" value="3">Neutrophils</label>
+</form>
+<br><br>
+<button type="button" name="OK" class="ok btn btn-warning button">Generate charts</button>
+
+
+</div>
+</div>
+</div>
+<br>
+<div id="chartDiv"  style="display:none;" class="ct-chart9"></div>
+<br>
+<div class="row">
+        <div class="col-lg-12">
+              <h2>Lipid Profile.</h2>
+<div class="table-responsive">
+<table id="demo1" class="table table-condensed table-hover table-bordered sortable">
+    <thead>
+        <tr>
+            <th>Cholesterol(mg/dL)</th>
+            <th>Triglycerides(mg/dL)</th>
+            <th>HDL Cholesterol(mg/dL)</th>
+            <th>LDL Cholesterol(mg/dL)</th>
+            <th>VLDL Cholesterol(mg/dL)</th>
+            <th>LDL/HDL Cholesterol(mg/dL)</th>
+        </tr>
+    </thead>
+    <tbody>
+      {{# each haematology}}
+      {{# each this}}
+        <tr>
+
+            <td>{{this.Cholesterol}}</td>
+            <td>{{this.Triglycerides}}</td>
+            <td>{{this.HDLCholesterol}}</td>
+            <td>{{this.LDLCholesterol}}</td>
+            <td>{{this.VLDLCholesterol}}</td>
+            <td>{{this.LDLHDLCholesterol}}</td>
+        </tr>
+          {{/each}}
+      {{/each}}
+    </tbody>
+
+</table>
+<form id="myForm1">
+<label class="radio-inline"><input type="radio" name="optradio1" value="1">Cholesterol</label>
+<label class="radio-inline"><input type="radio" name="optradio1" value="2">Triglycerides</label>
+<label class="radio-inline"><input type="radio" name="optradio1" value="3">HDLCholesterol</label>
+</form>
+<br><br>
+  <button type="button" name="OK" class="ok1 btn btn-warning button">Generate charts</button>
+
+</div>
+</div>
+</div>
+<br>
+<div id="chartDiv1"  style="display:none;" class="ct-chart10"></div>
+
+<br>
+<div class="row">
+        <div class="col-lg-12">
+              <h2>Kidney functioning test.</h2>
+<div class="table-responsive">
+<table id="demo2" class="table table-condensed table-hover table-bordered sortable">
+    <thead>
+        <tr>
+            <th>Urea(mg/dL)</th>
+            <th>Creatinine(mg/dL)</th>
+            <th>Sodium(mEq/L)</th>
+            <th>Uric Acid(mg/dL)</th>
+            <th>Potassium(mEq/L)</th>
+            <th>Phosphorous(mg/dL)</th>
+        </tr>
+    </thead>
+    <tbody>
+      {{# each haematology}}
+      {{# each this}}
+        <tr>
+
+            <td>{{this.Urea}}</td>
+            <td>{{this.Creatinine}}</td>
+            <td>{{this.Sodium}}</td>
+            <td>{{this.Uric}}</td>
+            <td>{{this.Potassium}}</td>
+            <td>{{this.Phosphorous}}</td>
+        </tr>
+          {{/each}}
+      {{/each}}
+    </tbody>
+
+</table>
+<form id="myForm2">
+<label class="radio-inline"><input type="radio" name="optradio2" value="1">Urea</label>
+<label class="radio-inline"><input type="radio" name="optradio2" value="2">Creatinine</label>
+<label class="radio-inline"><input type="radio" name="optradio2" value="3">Sodium</label>
+</form>
+<br><br>
+  <button type="button" name="OK" class="ok2 btn btn-warning button">Generate charts</button>
+
+</div>
+</div>
+</div>
+<br>
+<div id="chartDiv2"  style="display:none;" class="ct-chart11"></div>
+
+
+<br>
+<div class="row">
+        <div class="col-lg-12">
+              <h2>Liver functioning test.</h2>
+<div class="table-responsive">
+<table id="demo3" class="table table-condensed table-hover table-bordered sortable">
+    <thead>
+        <tr>
+            <th>Bilirubin(mg/dL)</th>
+            <th>Alkaline Phosphate(U/L)</th>
+            <th>Protein(gm/dL)</th>
+            <th>Albumin(gm/dL)</th>
+            <th>Gamma(u/l)</th>
+            <th>Globulin(gm/dL)</th>
+        </tr>
+    </thead>
+    <tbody>
+      {{# each haematology}}
+      {{# each this}}
+        <tr>
+
+            <td>{{this.Bilirubin}}</td>
+            <td>{{this.Alkaline}}</td>
+            <td>{{this.Protein}}</td>
+            <td>{{this.Albumin}}</td>
+            <td>{{this.Gamma}}</td>
+            <td>{{this.Globulin}}</td>
+        </tr>
+          {{/each}}
+      {{/each}}
+    </tbody>
+
+</table>
+<form id="myForm3">
+<label class="radio-inline"><input type="radio" name="optradio3" value="1">Bilirubin</label>
+<label class="radio-inline"><input type="radio" name="optradio3" value="2">Alkaline</label>
+<label class="radio-inline"><input type="radio" name="optradio3" value="3">Protein</label>
+</form>
+<br><br>
+  <button type="button" name="OK" class="ok3 btn btn-warning button">Generate charts</button>
+
+</div>
+</div>
+</div>
+<br>
+<div id="chartDiv3"  style="display:none;" class="ct-chart12"></div>
+
+
+
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Analysis</h4>
+      </div>
+      <div class="modal-body">
+        <p class="input-sm" id="txtfname"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id = "closebutton" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<br>
+
+
+
+{{ else }}
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">No data to show.<br></h2>
+        </div>
+    </div>
+{{/if}}
+
+
+
+
+
+
+
+
+</div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <script type="text/javascript" src="javascripts/charts.js"></script>
+    <script>
+    /*$('table tbody tr  td').on('click',function(){
+        $("#myModal").modal("show");
+        $("#txtfname").val($(this).closest('tr').children()[0].textContent);
+
+        $("#txtlname").val($(this).closest('tr').children()[1].textContent);
+    });*/
+    $("#demo tr").click(function(){
+   $(this).toggleClass('selected');
+   var value=$(this).find('td:first').text();
+   var value2 =$(this).find('td:nth-child(2)').text();
+   var value3 =$(this).find('td:nth-child(3)').text();
+});
+
+$('#closebutton').on('click', function(e) {
+  $('tr').removeClass("selected");
+  $('input:radio[name=optradio]').each(function () { $(this).prop('checked', false); });
+})
+$('.ok').on('click', function(e){
+  var jsonObj = {
+    selected : []
+};
+var temp = {
+labels: [],
+series : [[]]
+}
+if ($("input[name=optradio]:checked").length == 0) {
+  // Do your stuff here
+  $("#myModal").modal("show");
+  document.getElementById("txtfname").innerHTML = "Please select a radio button.";
+}
+var i = 1;
+    $("#demo tr.selected").each(function(){
+        var a = $('input[name=optradio]:checked', '#myForm').val();
+        jsonObj.selected.push($('td:first', this).text());
+        temp.labels.push(i);
+        i++;
+        temp.series[0].push($('td:nth-child(' + a + ')', this).text());
+
+    });
+    if(jsonObj.selected.length==0){
+      $("#myModal").modal("show");
+      document.getElementById("txtfname").innerHTML = "Please select entities to compare.";
+    }
+    else if(jsonObj.selected.length>5){
+      $("#myModal").modal("show");
+      document.getElementById("txtfname").innerHTML = "Cannot select more than five entities.";
+  }
+
+  else{
+    $('tr').removeClass("selected");
+    $('input:radio[name=optradio]').each(function () { $(this).prop('checked', false); });
+    document.getElementById('chartDiv').style.display = "block";
+    drawChart8(temp);
+    /*$.ajax({
+    type:"post",
+    url:"/name",
+    dataType: 'json',
+        data: JSON.stringify(jsonObj),
+        contentType: 'application/json',
+        success: function(data){
+           alert("success");
+           alert(data);
+    }
+});
+jsonObj.selected=[];
+    rendergraph();*/
+  }
+});
+    </script>
+
+
+
+
+    <script>
+    /*$('table tbody tr  td').on('click',function(){
+        $("#myModal").modal("show");
+        $("#txtfname").val($(this).closest('tr').children()[0].textContent);
+
+        $("#txtlname").val($(this).closest('tr').children()[1].textContent);
+    });*/
+    $("#demo1 tr").click(function(){
+   $(this).toggleClass('selected');
+   var value=$(this).find('td:first').text();
+   var value2 =$(this).find('td:nth-child(2)').text();
+   var value3 =$(this).find('td:nth-child(3)').text();
+});
+
+$('#closebutton').on('click', function(e) {
+  $('tr').removeClass("selected");
+  $('input:radio[name=optradio1]').each(function () { $(this).prop('checked', false); });
+})
+$('.ok1').on('click', function(e){
+  var jsonObj = {
+    selected : []
+};
+var temp = {
+labels: [],
+series : [[]]
+}
+if ($("input[name=optradio1]:checked").length == 0) {
+  // Do your stuff here
+  $("#myModal").modal("show");
+  document.getElementById("txtfname").innerHTML = "Please select a radio button.";
+}
+var i = 1;
+    $("#demo1 tr.selected").each(function(){
+      var a = $('input[name=optradio1]:checked', '#myForm1').val();
+      jsonObj.selected.push($('td:first', this).text());
+      temp.labels.push(i);
+      i++;
+      temp.series[0].push($('td:nth-child(' + a + ')', this).text());
+
+    });
+    if(jsonObj.selected.length==0){
+      $("#myModal").modal("show");
+      document.getElementById("txtfname").innerHTML = "Please select entities to compare.";
+    }
+    else if(jsonObj.selected.length>5){
+      $("#myModal").modal("show");
+      document.getElementById("txtfname").innerHTML = "Cannot select more than five entities.";
+  }
+
+  else{
+    $('tr').removeClass("selected");
+    $('input:radio[name=optradio1]').each(function () { $(this).prop('checked', false); });
+    document.getElementById('chartDiv1').style.display = "block";
+    drawChart9(temp);
+    /*$.ajax({
+    type:"post",
+    url:"/name",
+    dataType: 'json',
+        data: JSON.stringify(jsonObj),
+        contentType: 'application/json',
+        success: function(data){
+           alert("success");
+           alert(data);
+    }
+});
+jsonObj.selected=[];
+    rendergraph();*/
+  }
+});
+    </script>
+
+
+
+    <script>
+    /*$('table tbody tr  td').on('click',function(){
+        $("#myModal").modal("show");
+        $("#txtfname").val($(this).closest('tr').children()[0].textContent);
+
+        $("#txtlname").val($(this).closest('tr').children()[1].textContent);
+    });*/
+    $("#demo2 tr").click(function(){
+   $(this).toggleClass('selected');
+   var value=$(this).find('td:first').text();
+   var value2 =$(this).find('td:nth-child(2)').text();
+   var value3 =$(this).find('td:nth-child(3)').text();
+});
+
+$('#closebutton').on('click', function(e) {
+  $('tr').removeClass("selected");
+  $('input:radio[name=optradio2]').each(function () { $(this).prop('checked', false); });
+})
+$('.ok2').on('click', function(e){
+  var jsonObj = {
+    selected : []
+};
+var temp = {
+labels: [],
+series : [[]]
+}
+if ($("input[name=optradio2]:checked").length == 0) {
+  // Do your stuff here
+  $("#myModal").modal("show");
+  document.getElementById("txtfname").innerHTML = "Please select a radio button.";
+}
+var i = 1;
+    $("#demo2 tr.selected").each(function(){
+      var a = $('input[name=optradio2]:checked', '#myForm2').val();
+      jsonObj.selected.push($('td:first', this).text());
+      temp.labels.push(i);
+      i++;
+      temp.series[0].push($('td:nth-child(' + a + ')', this).text());
+
+    });
+    if(jsonObj.selected.length==0){
+      $("#myModal").modal("show");
+      document.getElementById("txtfname").innerHTML = "Please select entities to compare.";
+    }
+    else if(jsonObj.selected.length>5){
+      $("#myModal").modal("show");
+      document.getElementById("txtfname").innerHTML = "Cannot select more than five entities.";
+  }
+
+  else{
+    $('tr').removeClass("selected");
+    $('input:radio[name=optradio2]').each(function () { $(this).prop('checked', false); });
+    document.getElementById('chartDiv2').style.display = "block";
+    drawChart10(temp);
+    /*$.ajax({
+    type:"post",
+    url:"/name",
+    dataType: 'json',
+        data: JSON.stringify(jsonObj),
+        contentType: 'application/json',
+        success: function(data){
+           alert("success");
+           alert(data);
+    }
+});
+jsonObj.selected=[];
+    rendergraph();*/
+  }
+});
+    </script>
+
+
+    <script>
+    /*$('table tbody tr  td').on('click',function(){
+        $("#myModal").modal("show");
+        $("#txtfname").val($(this).closest('tr').children()[0].textContent);
+
+        $("#txtlname").val($(this).closest('tr').children()[1].textContent);
+    });*/
+    $("#demo3 tr").click(function(){
+   $(this).toggleClass('selected');
+   var value=$(this).find('td:first').text();
+   var value2 =$(this).find('td:nth-child(2)').text();
+   var value3 =$(this).find('td:nth-child(3)').text();
+});
+
+$('#closebutton').on('click', function(e) {
+  $('tr').removeClass("selected");
+  $('input:radio[name=optradio3]').each(function () { $(this).prop('checked', false); });
+})
+$('.ok3').on('click', function(e){
+  var jsonObj = {
+    selected : []
+};
+var temp = {
+labels: [],
+series : [[]]
+}
+if ($("input[name=optradio3]:checked").length == 0) {
+  // Do your stuff here
+  $("#myModal").modal("show");
+  document.getElementById("txtfname").innerHTML = "Please select a radio button.";
+}
+var i = 1;
+    $("#demo3 tr.selected").each(function(){
+      var a = $('input[name=optradio3]:checked', '#myForm3').val();
+      jsonObj.selected.push($('td:first', this).text());
+      temp.labels.push(i);
+      i++;
+      temp.series[0].push($('td:nth-child(' + a + ')', this).text());
+    });
+    if(jsonObj.selected.length==0){
+      $("#myModal").modal("show");
+      document.getElementById("txtfname").innerHTML = "Please select entities to compare.";
+    }
+    else if(jsonObj.selected.length>5){
+      $("#myModal").modal("show");
+      document.getElementById("txtfname").innerHTML = "Cannot select more than five entities.";
+  }
+
+  else{
+    $('tr').removeClass("selected");
+    $('input:radio[name=optradio3]').each(function () { $(this).prop('checked', false); });
+    document.getElementById('chartDiv3').style.display = "block";
+    drawChart11(temp);
+    /*$.ajax({
+    type:"post",
+    url:"/name",
+    dataType: 'json',
+        data: JSON.stringify(jsonObj),
+        contentType: 'application/json',
+        success: function(data){
+           alert("success");
+           alert(data);
+    }
+});
+jsonObj.selected=[];
+    rendergraph();*/
+  }
+});
+    </script>
+
+    <script>
+    function rendergraph() {
+    document.getElementById('chartDiv').style.display = "block";
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "/name", true);
+    xmlhttp.responseType = 'json';
+    xmlhttp.onreadystatechange = function() {
+    if(xmlhttp.status == 200) {
+    var data = xmlhttp.response;
+    console.log(data.data[0]);
+    drawChart4(data.data[0]);
+    }
+    }
+    xmlhttp.send();
+    console.log("Request was sent to server");
+    }
+    </script>
+<script type="text/javascript" src="javascripts/table.js"></script>
+<script type="text/javascript" src="javascripts/table1.js"></script>
+<script type="text/javascript" src="javascripts/table2.js"></script>
+<script type="text/javascript" src="javascripts/table3.js"></script>
