@@ -1,0 +1,9 @@
+package myPackage;
+
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+
+public class Reducer1 extends Reducer1<Text,
+IntWritable, Text, IntWritable> {
+
+}

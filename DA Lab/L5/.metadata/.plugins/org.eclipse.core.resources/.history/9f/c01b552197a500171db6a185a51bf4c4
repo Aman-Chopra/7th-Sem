@@ -1,0 +1,40 @@
+package myPackage;
+
+import myPackage.MultiInput2.MapForWordCount;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.TextInputFormat;
+import org.apache.hadoop.mapred.lib.MultipleInputs;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.GenericOptionsParser;
+
+public class Driver {
+	public int run(String[] args) throws Exception {
+		Configuration c = new Configuration();
+		String[] files = new GenericOptionsParser(c, args).getRemainingArgs();
+		Path p1 = new Path(files[0]);
+		Path p2 = new Path(files[1]);
+		Path p3 = new Path(files[2]);
+		FileSystem fs = FileSystem.get(c);
+		if (fs.exists(p3)) {
+			fs.delete(p3, true);
+		}
+		Job j = new Job(c, "Multiple Job");
+		j.setJarByClass(Driver.class);
+		MultipleInputs.addInputPath(j, p1, TextInputFormat.class,MultiInput1.class);
+		MultipleInputs.addInputPath(j, p2, TextInputFormat.class,MultiInput2.class);
+		j.setMapperClass(MapForWordCount.class);
+		j.setReducerClass(Reducer1.class);
+		j.setOutputKeyClass(Text.class);
+		j.setOutputValueClass(Text.class);
+		//FileInputFormat.addInputPath(j, input);
+		//FileOutputFormat.setOutputPath(j, output);
+		System.exit(j.waitForCompletion(true) ? 0 : 1);
+	}
+}

@@ -1,0 +1,13 @@
+show collections
+db.createCollection("collection_418")
+use collection_418
+db.collection_418.insert({"name":"abcd","enroll":"418","branch":"it","salary":"50000"})
+db.collection_418.insert({"name":"xyz","enroll":"394","branch":"it","salary":"75000"})
+use table1
+db.collection_418.find().pretty();
+db.collection_418.find({"salary":{$gt:"60000"}}).pretty();
+db.collection_418.update({"name":"xyz"},{$set:{"name":"lmn"}});
+db.collection_418.drop();
+db.table1.drop();
+db.collection_418.find({},{"name":1,"enroll":1}); 
+db.collection_418.find({},{"_id":0});

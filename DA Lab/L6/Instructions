@@ -1,0 +1,2 @@
+/usr/local/pig/bin/pig -x local whatever
+Give permission to create and delete files in the folder for storing
