@@ -1,0 +1,56 @@
+PIG:
+
+su hduser
+password: password
+start-all.sh
+hadoop dfs -copyFromLocal ‘/path/of/input/file’ ‘/user/inputrandomfilename’
+pig -x mapreduce localpathofpigfile/pigfilename.pig
+ 
+#If the above command doesn’t work, i.e., the environment variable is not #set. Then use,
+
+cd usr/local/pig/bin
+pig -x mapreduce localpathofpingfile/pigfilename.pig (For map reduce mode)
+pig -x local localpathofpingfile/pigfilename.pig (For local mode)
+
+#The above command with run the pig file, if you want to run line by line in grunt shell, just copy individual lines.
+
+To open grunt do, pig -x mapreduce or pig -x local 
+#The first line of .pig file is the load command where the path is hdfs input path like /user/inputrandomfilename.
+
+FLATTEN and TOKENIZE should always be in caps.
+
+TO DO:
+FLATTEN, TOKENIZE, group, join, filter, order, count.
+
+HIVE:
+
+su hduser
+password: password
+start-all.sh
+cd
+hive
+hive>
+
+MONGO:
+
+mongo
+#use db
+#db.testtable
+
+R:
+
+Normal Functions:
+
+function_name = function(comma separated parameters)
+{
+  #return(in brackets);
+  #After source, it comes to the environment
+  #Run as function_name(comma separated parameters)
+  data = as.data.frame(read.csv("Data.csv"))
+}
+
+TO DO:
+Maile Codes
+Lab 2 - K means, KNN, Cart, SVM, logistic Regression.
+Lab 1 - Basics and apply.
+
