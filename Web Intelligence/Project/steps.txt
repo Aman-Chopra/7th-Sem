@@ -1,0 +1,12 @@
+source ~/.profile
+hstart
+jps
+hadoop dfs -copyFromLocal /Users/amanchopra/Documents/userRating.txt /userRating.txt
+hadoop dfs -copyFromLocal /Users/amanchopra/Documents/Movie_Rating.jar /Movie_Rating.jar
+hadoop dfs -rm /Movie_Rating.jar
+//For folders
+hadoop dfs -rm -r /folderName
+hadoop jar Movie_Rating.jar itemCollaborativeFiltering.Driver /userRating.txt /dataDividedByUser /coOccurrenceMatrix /normalizedMatrix /multiplicationMapperJoin /multiplicationSum /recommender
+hadoop fs -ls /recommender
+hadoop fs -cat /recommender/part-r-00000
+hstop
