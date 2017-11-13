@@ -1,0 +1,14 @@
+Budgeting:
+Scoro, Gide, Tagetik, Coupa, Tidemark.
+Data Analysis:
+Weka, Rapid Miner, D3.js, Scilab,Open Refine.
+Reporting:
+Birt, Jasper Report, Pantaho, SpagoBI.
+Visualization:
+Fusion Charts, Tableau, Plotly, Gephi, Infogram, GoodData.
+Analytical:
+Widestage, Splunk, QlikSense, Looker, JMagallenes.
+Predictive Analysis:
+Infer, Everstring, Radius, Halo, Board.
+Dashboard:
+Power BI, Cyfe, SiSense, Pentaho, Tableau.
